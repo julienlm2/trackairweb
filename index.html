@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track'Air - L'innovation tactique pour l'Airsoft</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --military-green: #4B5320;
+            --olive-drab: #544F3D;
+            --tactical-black: #1A1A1A;
+            --desert-tan: #A69076;
+            --camo-brown: #594D3B;
+            --accent-red: #8B0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--tactical-black);
+            background: #f4f4f4;
+        }
+
+        /* Header et Navigation */
+        header {
+            background: linear-gradient(135deg, var(--military-green), var(--tactical-black)), 
+                        url('/api/placeholder/1920/600') center/cover;
+            background-blend-mode: multiply;
+            color: white;
+            padding: 2rem 0 4rem;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--desert-tan);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            background-color: rgb(216, 216, 216);
+            border: 2px solid var(--desert-tan);
+            border-radius: 12px;
+            margin: 0 auto 2rem;
+            padding: 1rem;
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--desert-tan);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--military-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-red);
+            padding-left: 1rem;
+        }
+
+        /* Présentation du produit */
+        .product {
+            background: white;
+        }
+
+        .product-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-image img {
+            width: 100%;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-benefits {
+            margin-top: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: rgba(75, 83, 32, 0.05);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .benefit-card i {
+            font-size: 2rem;
+            color: var(--military-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Vidéo démo */
+        .video-demo {
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 450px;
+            background: var(--tactical-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            cursor: pointer;
+        }
+
+        /* Versions */
+        .versions {
+            background: white;
+        }
+
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .version-card {
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--olive-drab);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .version-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--military-green);
+        }
+
+        .version-card.pro {
+            background: linear-gradient(135deg, var(--tactical-black), var(--military-green));
+            color: white;
+        }
+
+        .version-card.pro::after {
+            background: var(--accent-red);
+        }
+
+        .version-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+
+        .feature-list i {
+            margin-right: 1rem;
+            color: var(--accent-red);
+        }
+
+        .version-card.pro .feature-list i {
+            color: var(--desert-tan);
+        }
+
+        .price {
+            font-size: 2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            font-weight: bold;
+        }
+
+        .version-card .button {
+            margin-top: auto;
+            align-self: center;
+        }
+
+        /* Application */
+        .app-features {
+            text-align: center;
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+        }
+
+        .app-mockup {
+            max-width: 250px; /* Reduced from 350px */
+            width: 30%; /* Makes it responsive */
+            min-width: 200px; /* Ensures it doesn't get too small on mobile */
+            margin: 0 auto 2rem; /* Added some bottom margin */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 12px; /* Slightly reduced radius */
+            overflow: hidden;
+        }
+
+        .app-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--olive-drab);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            color: var(--military-green);
+            margin-bottom: 1rem;
+        }
+
+        /* Témoignages */
+        .testimonials {
+            background: white;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 3rem;
+            color: var(--military-green);
+            opacity: 0.3;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--desert-tan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* À propos */
+        .about {
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+        }
+
+        .about-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: justify;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--desert-tan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .team-member h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: var(--camo-brown);
+            font-style: italic;
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+        }
+
+        .accordion {
+            margin-top: 2rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--olive-drab);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: linear-gradient(45deg, #1a1a1a05, #4b532010);
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .accordion-content.active {
+            padding: 1rem;
+            max-height: 500px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--military-green), var(--tactical-black));
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139,0,0,0.3);
+            background: #a00000;
+        }
+
+        .button.secondary {
+            background: transparent;
+            border: 2px solid var(--desert-tan);
+            color: var(--desert-tan);
+        }
+
+        .button.secondary:hover {
+            background: rgba(166, 144, 118, 0.1);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--olive-drab);
+            color: white;
+            padding: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-red);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--tactical-black);
+            color: var(--desert-tan);
+            padding: 4rem 2rem 2rem;
+            border-top: 4px solid var(--military-green);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-red);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--desert-tan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-red);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+        }
+
+        .white-text {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-small">
+                <img style="filter: invert(1) grayscale(1);" src="logotrackairsmall.png" alt="Logo Track'Air">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#application">Application</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero">
+            <div class="logo">
+                <img src="logotrackair.png" alt="Logo Track'Air">
+            </div>
+            <h1>Track'Air</h1>
+            <p>L'innovation tactique pour l'Airsoft : suivez en temps réel le nombre de billes dans votre chargeur et gardez le contrôle total sur le terrain.</p>
+            <a href="#" class="button">Précommander</a>
+            <a href="#produits" class="button secondary">Découvrir</a>
+        </div>
+    </header>
+
+    <section class="product" id="produits">
+        <div class="container">
+            <div class="product-flex">
+                <div class="product-image">
+                    <img src="m4.png" alt="Track'Air Device">
+                </div>
+                <div class="product-info">
+                    <h2>Précision Tactique</h2>
+                    <p>
+                        Track'Air vous donne l'avantage tactique avec son embout connecté intelligent. 
+                        Suivez en temps réel le nombre de billes dans votre chargeur et gardez le contrôle 
+                        total de vos ressources sur le terrain. La différence entre la victoire et la défaite 
+                        se joue souvent sur la gestion des munitions.
+                    </p>
+                    <p>
+                        Notre technologie de comptage précis utilise des capteurs infrarouges avancés pour 
+                        détecter chaque bille tirée sans affecter les performances de votre réplique. Recevez 
+                        des alertes personnalisables lorsque votre chargeur atteint un seuil critique, vous 
+                        permettant d'anticiper vos rechargements stratégiques.
+                    </p>
+                </div>
+            </div>
+
+            <div class="product-benefits">
+                <h3>Avantages du Track'Air</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Précision tactique</h4>
+                        <p>Suivez avec exactitude chaque bille tirée pour une gestion optimale de vos munitions</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Connectivité intelligente</h4>
+                        <p>Application mobile intuitive pour un suivi en temps réel et des alertes personnalisables</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Avantage stratégique</h4>
+                        <p>Anticipez vos rechargements et gardez l'avantage sur vos adversaires</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-universal-access"></i>
+                        <h4>Compatibilité universelle</h4>
+                        <p>S'adapte à la majorité des répliques d'airsoft grâce à nos adaptateurs inclus</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-demo">
+        <div class="container">
+            <h2>En action sur le terrain</h2>
+            <p>Découvrez Track'Air en situation réelle lors d'une partie d'airsoft</p>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="versions" id="versions">
+        <div class="container">
+            <h2>Nos Produits</h2>
+            <p>Choisissez la version qui correspond à vos besoins tactiques</p>
+            <div class="versions-grid">
+                <div class="version-card">
+                    <h3>Track'Air Classic</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-crosshairs"></i>Compteur de billes intelligent</li>
+                        <li><i class="fas fa-mobile-alt"></i>Application tactique connectée</li>
+                        <li><i class="fas fa-battery-full"></i>Autonomie longue durée</li>
+                        <li><i class="fas fa-wifi"></i>Connectivité Bluetooth</li>
+                        <li><i class="fas fa-tools"></i>Adaptateurs universels inclus</li>
+                    </ul>
+                    <div class="price">149€</div>
+                    <a href="#" class="button">Précommander</a>
+                </div>
+                <div class="version-card pro">
+                    <h3>Track'Air Pro</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Toutes les fonctionnalités Classic</li>
+                        <li><i class="fas fa-lightbulb"></i>Traceur de billes avancé</li>
+                        <li><i class="fas fa-moon"></i>Système nocturne optimisé</li>
+                        <li><i class="fas fa-cogs"></i>Configuration avancée</li>
+                        <li><i class="fas fa-chart-line"></i>Statistiques de performance étendues</li>
+                    </ul>
+                    <div class="price">199€</div>
+                    <a href="#" class="button">Précommander</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-features" id="application">
+        <div class="container">
+            <h2>Interface ergonomique</h2>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+                <div class="app-mockup">
+                    <img src="mainpage.jpg" alt="Page principale de l'application Track'Air">
+                </div>
+                <div class="app-mockup">
+                    <img src="parametres.png" alt="Page des paramètres de l'application Track'Air">
+                </div>
+                <div class="app-mockup">
+                    <img src="preset.png" alt="Page des préréglages de l'application Track'Air">
+                </div>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h3>Contrôle Temps Réel</h3>
+                    <p>Surveillez vos munitions avec précision et recevez des alertes tactiques personnalisables</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-bar fa-2x"></i>
+                    <h3>Analyse Tactique</h3>
+                    <p>Optimisez votre stratégie grâce aux données de performance et historiques de tir</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt fa-2x"></i>
+                    <h3>Cartographie Avancée</h3>
+                    <p>Analysez le terrain et vos zones d'engagement pour améliorer votre tactique</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Ce qu'en disent nos testeurs</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Maxime R.</h4>
+                    <p>Gérant de terrain d'airsoft</p>
+                    <p>"Les joueurs qui utilisent Track'Air sur mon terrain sont unanimes : c'est un accessoire qui change vraiment la donne et améliore l'expérience de jeu."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Notre Histoire</h2>
+            <div class="about-flex">
+                <div class="about-text">
+                    <p>
+                        Track'Air est né de la passion commune pour l'airsoft et la technologie de nos fondateurs, Damien et Léo. 
+                        Lors de nombreuses parties, ils ont identifié un problème récurrent pour tous les joueurs : 
+                        l'impossibilité de savoir précisément combien de billes restent dans un chargeur en pleine action.
+                    </p>
+                    <p>
+                        Cette frustration partagée les a poussés à imaginer une solution innovante qui répondrait à ce besoin 
+                        concret des joueurs d'airsoft. Rejoints par une équipe d'ingénieurs passionnés de l'ISEN Toulon, 
+                        ils ont développé Track'Air : un embout intelligent qui transforme l'expérience de jeu en alliant 
+                        technologie de pointe et simplicité d'utilisation.
+                    </p>
+                    <p>
+                        Notre équipe est guidée par une vision claire : enrichir l'expérience des joueurs tout en démontrant 
+                        le potentiel d'une technologie bien pensée et adaptée aux besoins spécifiques de cette communauté.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Notre Équipe</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Damien Falco</h4>
+                    <p>Mécanique & Support Application</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Léo Wronski</h4>
+                    <p>Co-fondateur</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Julien Le Moal</h4>
+                    <p>Développeur Backend & Communication sans fil</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Raphaël Dupoux</h4>
+                    <p>Support Application</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4>Enzo Vargas</h4>
+                    <p>Développeur Application & Designer UX/UI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eco-friendly">
+        <div class="container">
+            <h2>Notre Engagement Écologique</h2>
+            <div class="product-flex">
+                <div class="product-info">
+                    <p>
+                        Chez Track'Air, nous croyons fermement que l'innovation technologique doit aller de pair avec 
+                        la responsabilité environnementale. C'est pourquoi nous avons conçu notre produit selon des 
+                        principes d'éco-conception rigoureux.
+                    </p>
+                    <ul class="feature-list" style="margin-top: 1.5rem;">
+                        <li><i class="fas fa-leaf"></i>Corps fabriqué en PLA biodégradable</li>
+                        <li><i class="fas fa-recycle"></i>Batteries NiMH recyclables à 66%</li>
+                        <li><i class="fas fa-bolt"></i>Conception électronique à faible consommation énergétique</li>
+                        <li><i class="fas fa-print"></i>Fabrication par impression 3D pour minimiser les déchets</li>
+                        <li><i class="fas fa-box"></i>Emballage minimaliste et recyclable</li>
+                    </ul>
+                </div>
+                <div class="product-image">
+                    <img src="PLA_illustration.png" alt="Engagement écologique Track'Air">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs">
+        <div class="container">
+            <h2>Spécifications Techniques</h2>
+            <div class="versions-grid">
+                <div class="version-card">
+                    <h3>Caractéristiques Physiques</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-weight"></i><strong>Poids:</strong> 75g</li>
+                        <li><i class="fas fa-ruler-combined"></i><strong>Dimensions:</strong> 10cm x 3cm (diamètre)</li>
+                        <li><i class="fas fa-palette"></i><strong>Couleurs:</strong> Noir, Tan, OD Green</li>
+                        <li><i class="fas fa-box"></i><strong>Matériau:</strong> PLA biodégradable</li>
+                        <li><i class="fas fa-shield-alt"></i><strong>Résistance:</strong> Résistant aux chocs et à l'eau (IPX5)</li>
+                    </ul>
+                </div>
+                <div class="version-card">
+                    <h3>Caractéristiques Techniques</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-battery-full"></i><strong>Batterie:</strong> NiMH rechargeable</li>
+                        <li><i class="fas fa-clock"></i><strong>Autonomie:</strong> 12-15 heures d'utilisation</li>
+                        <li><i class="fas fa-wifi"></i><strong>Connectivité:</strong> Bluetooth 5.0 (portée 50m)</li>
+                        <li><i class="fas fa-microchip"></i><strong>Capteurs:</strong> Infrarouge haute précision</li>
+                        <li><i class="fas fa-bolt"></i><strong>Recharge:</strong> USB-C, temps de charge 1h30</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="compatibility">
+        <div class="container">
+            <h2>Compatibilité</h2>
+            <p>Track'Air est conçu pour s'adapter à la majorité des répliques d'airsoft grâce à son système d'adaptateurs universels</p>
+            
+            <div class="benefits-grid" style="margin-top: 2rem;">
+                <div class="benefit-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>AEG Standards</h3>
+                    <p>Compatible avec la plupart des répliques automatiques électriques</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>GBBR</h3>
+                    <p>Compatible avec les répliques à gaz Blow-Back</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>HPA</h3>
+                    <p>Compatible avec les systèmes pneumatiques haute pression</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Adaptateurs inclus</h3>
+                    <p>14mm CCW, 14mm CW et 16mm disponibles dans chaque pack</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; text-align: center;">
+            </p>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Questions Fréquentes</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Comment fonctionne le comptage des billes ?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Track'Air utilise un système de capteurs infrarouges haute précision placés dans l'embout. Chaque bille qui passe à travers l'embout est détectée individuellement, permettant un comptage précis. Ces données sont instantanément transmises à l'application via Bluetooth.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        L'installation affecte-t-elle les performances de ma réplique ?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Non, Track'Air a été conçu pour ne pas affecter la vélocité, la précision ou le son de votre réplique. L'embout est calibré pour maintenir les performances optimales tout en assurant sa fonction de comptage.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Quelle est l'autonomie de la batterie ?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>L'autonomie de la batterie est d'environ 12-15 heures d'utilisation continue. La recharge complète se fait en 1h30 environ via le port USB-C. L'application vous indique également le niveau de batterie restant.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Comment configurer les alertes de munitions faibles ?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Dans l'application Track'Air, vous pouvez personnaliser les seuils d'alerte en pourcentage ou en nombre absolu de billes. Vous pouvez choisir entre des alertes par vibration, notification sonore ou visuelle selon vos préférences de jeu.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        Track'Air est-il résistant aux intempéries ?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Oui, Track'Air a une certification IPX5, ce qui signifie qu'il résiste aux projections d'eau de toutes directions. Il peut donc être utilisé sous la pluie ou dans des environnements humides sans problème.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2 class="white-text">Prêt à révolutionner votre expérience d'airsoft ?</h2>
+            <a href="#" class="button">Précommander Track'Air</a>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h3>Restez informé des dernières nouvelles</h3>
+            <p>Inscrivez-vous à notre newsletter pour suivre le développement de Track'Air</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Votre adresse email" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#application">Application</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="#">Track'Air Classic</a></li>
+                    <li><a href="#">Track'Air Pro</a></li>
+                    <li><a href="#">Adaptateurs</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Guide d'installation</a></li>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#">Télécharger l'application</a></li>
+                    <li><a href="#">Garantie</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>18 chemin de l'école</p>
+                <p>La Garde, France</p>
+                <p>trackairsoft@support.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Track'Air. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Script pour les accordéons FAQ
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('active');
+                
+                // Changer l'icône
+                const icon = button.querySelector('i');
+                if (content.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
